@@ -1,0 +1,44 @@
+﻿@model BazaOsobZaginionych.Models.UpdatePersonViewModel
+@{
+}
+
+<h1>Edytuj Informacje o Osobie Zaginionej</h1>
+
+<form method="post" action="View" class="mt-5">
+
+   <div class="mb-3">
+    <label for="" class="form-label">ID</label>
+    <input type="text" class="form-control" asp-for="Id" readonly>
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Imię</label>
+    <input type="text" class="form-control" asp-for="FirstName" readonly>
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Nazwisko</label>
+    <input type="text" class="form-control" asp-for="LastName" readonly>
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Płeć</label>
+    <input type="text" class="form-control" asp-for="Gender" readonly>
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Wiek</label>
+    <input type="number" class="form-control" asp-for="Age" readonly>
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Miasto</label>
+    <input type="text" class="form-control" asp-for="City" readonly>
+  </div>
+
+    <div class="mb-3">
+    <label for="" class="form-label">Województwo</label>
+    <input type="text" class="form-control" asp-for="State" readonly>
+  </div>
+</form>
+

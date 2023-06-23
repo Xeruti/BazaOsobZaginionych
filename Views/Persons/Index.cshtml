@@ -1,0 +1,44 @@
+﻿@model List<BazaOsobZaginionych.Models.Domain.Person>
+@{
+}
+
+<h1>Osoby Zaginione</h1>
+
+@using (Html.BeginForm("Index","Persons", FormMethod.Get))
+{
+	<p>Wyszukaj po płci osoby zaginionej</p>
+	@Html.TextBox("searching")
+	<input type="submit" value="Wyszukaj"/>
+}
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Imię</th>
+			<th>Nazwisko</th>
+			<th>Płeć</th>
+			<th>Wiek</th>
+			<th>Miasto</th>
+			<th>Województwo</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var person in Model)
+		{
+			<tr>
+				<td>@person.Id</td>
+				<td>@person.FirstName</td>
+				<td>@person.LastName</td>
+				<td>@person.Gender</td>
+				<td>@person.Age</td>
+				<td>@person.City</td>
+				<td>@person.State</td>
+				<td><a href="/Persons/Select/@person.Id">Wyświetl</a></td>
+				@if(User.IsInRole("admin")){
+				<td><a href="/Persons/View/@person.Id">Edytuj Dane</a></td>
+				}
+			</tr>
+		}
+	</tbody>
+</table>

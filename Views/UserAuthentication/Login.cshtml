@@ -1,0 +1,77 @@
+﻿@model BazaOsobZaginionych.Models.DTO.Login
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        form {
+  border: 3px solid #f1f1f1;
+  width:60%;
+  margin:auto;
+  margin-top:10%;
+}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button {
+  background-color: #60b3eb;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.container {
+  padding: 16px;
+}
+.msg{
+  padding: 0px;
+}
+.err{
+    color:red;
+}
+    </style>
+</head>
+<body>
+
+    <form asp-action="Login" method="post">
+  
+  <div class="container">
+    <label asp-for="Username"><b>Nazwa użytkownika:</b></label>
+    <input type="text" asp-for="Username" placeholder="Wpisz nazwę użytkownika">
+            <div class="msg">
+            <span class="err" asp-validation-for="Username"></span>
+            </div>
+
+            
+
+    <label asp-for="Password"><b>Hasło:</b></label>
+   <input  type="password" asp-for="Password" placeholder="Podaj hasło">
+            <div class="msg">
+            <span asp-validation-for="Password" class="err"></span>
+            </div>
+
+
+    @if(TempData["msg"]!=null){
+                <div class="msg">@TempData["msg"]</div>
+    }
+
+    <button type="submit">Login</button>
+    <a class="text-alert" href="/UserAuthentication/Registration">Nie posiadasz konta? Zarejestruj się.</a>
+  </div>
+</form>
+
+</body>
+</html>
